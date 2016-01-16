@@ -107,11 +107,3 @@ RUN dpkg-reconfigure locales && \
 
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
-
-# Install Pandoc
-RUN cabal update && cabal install pandoc
-RUN cabal update && cabal install pandoc-citeproc
-
-# Link Pandoc Binaries
-RUN ln -s /root/.cabal/bin/pandoc /usr/local/bin/pandoc
-RUN ln -s /root/.cabal/bin/pandoc-citeproc /usr/local/bin/pandoc-citeproc
