@@ -6,11 +6,9 @@ RUN sed -i.bak 's/archive.ubuntu.com/mirrors.rit.edu/' /etc/apt/sources.list
 # install Haskell, R dependencies, etc.
 RUN apt-get update && apt-get install --assume-yes --no-install-recommends \
     apache2 \
-    cabal-install \
     ca-certificates \
     ccache \
     gdebi \
-    ghc \
     git \
     libcurl4-openssl-dev \
     libmysqlclient-dev \
@@ -95,6 +93,10 @@ RUN apt-get install --assume-yes --no-install-recommends \
     texlive-lang-cjk  \
     t1utils  \
     texlive-lang-other
+
+# Install Haskell
+apt-get update && \
+    apt-get install haskell-platform
 
 # Set the locale for English, UTF-8
 #   see:
