@@ -3,8 +3,8 @@ FROM ubuntu:trusty
 # Try replacing the standard ubuntu archive with a faster mirror
 RUN sed -i.bak 's/archive.ubuntu.com/mirrors.rit.edu/' /etc/apt/sources.list
 
-# install Haskell, R dependencies, etc.
-RUN apt-get update && apt-get install --assume-yes --no-install-recommends \
+# install some  basic stuff R depends upon
+RUN apt-get update && apt-get install --assume-yes \
     apache2 \
     ca-certificates \
     ccache \
@@ -96,7 +96,7 @@ RUN apt-get install --assume-yes --no-install-recommends \
 
 # Install Haskell
 RUN apt-get update && \
-        apt-get install --assume-yes haskell-platform
+        apt-get install --assume-yes cabal-install
 
 # Set the locale for English, UTF-8
 #   see:
