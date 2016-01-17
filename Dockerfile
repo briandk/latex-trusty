@@ -95,8 +95,8 @@ RUN apt-get install --assume-yes --no-install-recommends \
     texlive-lang-other
 
 # Install Haskell
-apt-get update && \
-    apt-get install haskell-platform
+RUN apt-get update && \
+        apt-get install --assume-yes haskell-platform
 
 # Set the locale for English, UTF-8
 #   see:
